@@ -61,18 +61,13 @@ public class HandTracking : MonoBehaviour
             indexObject.GetComponent<Renderer>().enabled = true;
             indexObject.transform.position = IndexPose.Position;
 
-            Vector3 CentrePosition = (indexObject.transform.position + thumbObject.transform.position) / 2;
-            //Debug.Log($"CentrePosition: {CentrePosition}");
-
+            Vector3 CentrePosition = (indexObject.transform.position + thumbObject.transform.position) / 2f;
 
             middleObject.GetComponent<Renderer>().enabled = true;
             middleObject.transform.position = CentrePosition;
 
             //change coordinate origin to object origin
-
-            Vector3 ObjectsOrigin = ObjectToGrasp.transform.position;
-
-            //Debug.Log($"ObjectsOrigin: {ObjectsOrigin}");
+                        Vector3 ObjectsOrigin = ObjectToGrasp.transform.position;
 
             NewCentrePosition = CentrePosition - ObjectsOrigin;
             //Debug.Log($"NewCentrePosition: {NewCentrePosition}");

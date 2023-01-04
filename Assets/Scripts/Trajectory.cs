@@ -31,7 +31,7 @@ public class Trajectory : MonoBehaviour
         //Instantiate(trajectorySphere, HandTracking.NewCentrePosition, Quaternion.identity);
 
         float pinchStatus = Microsoft.MixedReality.Toolkit.Utilities.HandPoseUtils.CalculateIndexPinch(Microsoft.MixedReality.Toolkit.Utilities.Handedness.Right);
-        float pinchThreshold = 0.7f;
+        float pinchThreshold = 0.5f;
 
         //check if right hand is visible
         if (HandJointUtils.TryGetJointPose(TrackedHandJoint.IndexTip, Handedness.Right, out Index))
@@ -47,7 +47,6 @@ public class Trajectory : MonoBehaviour
                 // if right hand index pinches
                 if (pinchStatus > pinchThreshold)
                 {
-                    //Debug.Log("pinch>0.7 - saving");
                     //start the coroutine TrajectoryTracer
                     StartCoroutine(TrajectoryTracer());                                                             //4
 
@@ -55,8 +54,6 @@ public class Trajectory : MonoBehaviour
                 //if right hand doesn't pinch anymore
                 else if (pinchStatus <= pinchThreshold)
                 {
-                    //Debug.Log("<0.7 - open hand again");
-
                     //set back the TrajectoryStatus to false to stop the recording
                     TrajectoryStatus = false;
                 }
@@ -74,7 +71,7 @@ public class Trajectory : MonoBehaviour
     //run when teach button is pressed                                                                              1
     public void TeachTrajectory()
     {
-        Debug.Log("Button pressed");
+        //Debug.Log("Button pressed");
 
         //Initiate the coroutine "CountdownApp"
         StartCoroutine(TeachTrajectoryApp());                                                                       //2
@@ -124,8 +121,6 @@ public class Trajectory : MonoBehaviour
 
         //... before hiding the text again 
         printCountdown.gameObject.SetActive(false);
-
-
     }
 
     //start the recording of the position                                                                           4
@@ -170,11 +165,9 @@ public class Trajectory : MonoBehaviour
         // empty list of grasp position
         graspPosList.Clear();
 
-        // delete text in console
-        printResultRemove.gameObject.SetActive(false);
-
-        string txt = "testssss";
-        printResultRemove.text += Environment.NewLine+ txt;
+        // replacing text in console with original = deleting
+        string txt = "Taught poses:";
+        printResultRemove.text = txt;
     }
 
 }
