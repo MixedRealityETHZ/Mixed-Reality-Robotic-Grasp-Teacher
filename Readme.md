@@ -5,4 +5,4 @@ A digital twin of the object is used for the teaching. The operator can interact
 The trajectory is also taught on a digital twin of the scanned environment. This makes object avoidance more intuitive and independent of any path planner as well as collision detection algorithms.
 
  
- 
+ The demonstration video is avialable on Youtube under: https://youtu.be/HQ4btf-cnmc
