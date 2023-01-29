@@ -36,7 +36,7 @@ public class Countdown : MonoBehaviour
 
     public void Counter()
     {
-        //Initiate the coroutine "CountdownApp"
+        // Initiate the coroutine "CountdownApp"
         StartCoroutine(CountdownApp());
     }
 
@@ -53,8 +53,6 @@ public class Countdown : MonoBehaviour
         {
             //print the number
             printCountdown.text = $"Save in: {countdownStart}";
-
-            //Debug.Log(countdownStart);
 
             //wait for one second...
             yield return new WaitForSeconds(1f);
@@ -84,17 +82,12 @@ public class Countdown : MonoBehaviour
     {
         graspPosList.Add(HandTracking.NewCentrePosition);
 
-        //Debug.Log($"pos: {HandTracking.middleObject.transform.position}; list: {positionList[0]}");
-
-
         if (graspPosList.Count > 0)
         {
 
             printResult.gameObject.SetActive(true);
             
             printResult.text += Environment.NewLine + graspPosList[graspPosList.Count-1].ToString();
-
-            //printResult.text = printResult.text.Replace("Taught poses", "tata");
 
         }
     }
