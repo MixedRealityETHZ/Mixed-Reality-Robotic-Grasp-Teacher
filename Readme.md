@@ -27,7 +27,7 @@ While Mixed Realty Toolkit is selected, in the inspector
  - Under Input > Articulated Hand Tracking > Visualization Settings: both Hand Mesh Vizualisation Modes and Hand Joint Vizualisation Modes shall be turned off to Nothing.
  - Under Spatial Awarness, untick Enable Spatial Awareness System.
 
-The rest of the standard export setting for HoloLens are working.
+The rest of the standard export setting for HoloLens can be left as is.
 
 ## Building the app
 
