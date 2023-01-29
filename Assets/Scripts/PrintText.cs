@@ -18,16 +18,7 @@ public class PrintText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         printText.text = $"Centre Pose: {HandTracking.middleObject.transform.position}";
-
-        //Vector3 platonicPosition = (indexObject.transform.position + thumbObject.transform.position) / 2;
-
-        
-        //printText.text = platonicPosition;
-
-
     }
 
     public void SetBtnText()
