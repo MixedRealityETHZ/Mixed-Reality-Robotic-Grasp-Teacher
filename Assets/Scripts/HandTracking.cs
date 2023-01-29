@@ -70,9 +70,6 @@ public class HandTracking : MonoBehaviour
                         Vector3 ObjectsOrigin = ObjectToGrasp.transform.position;
 
             NewCentrePosition = CentrePosition - ObjectsOrigin;
-            //Debug.Log($"NewCentrePosition: {NewCentrePosition}");
-
-
 
             Vector3 indexKnuckle = KnucklePose.Position;
             Vector3 pointerAxis = indexKnuckle - ((indexObject.transform.position + thumbObject.transform.position) / 2);
@@ -82,16 +79,11 @@ public class HandTracking : MonoBehaviour
 
             //debug draw pointer line
             Debug.DrawLine(vecStart, vecEnd, new Color(0, 255, 0));
-            //Debug.Log($"index : {pose.Position}");
             //Vector3 Normal = Vector3.Cross().normalized;
 
             knuckleObject.GetComponent<Renderer>().enabled = true;
             knuckleObject.transform.position = KnucklePose.Position;
-            //Debug.Log($"knuckle: {KnucklePose}");
-
-
-
-
+  
             //NORMAL
             Vector3 Vec1 = (indexObject.transform.position - thumbObject.transform.position);
             Vector3 Vec2 = pointerAxis;
@@ -104,9 +96,6 @@ public class HandTracking : MonoBehaviour
 
             //debug draw finger tips line
             Debug.DrawLine(indexObject.transform.position, thumbObject.transform.position, new Color(255, 0, 0));
-
-
-            //Debug.DrawLine(platonicPosition, platonicPosition + new Vector3(0, 1, 0), new Color(255, 0, 0));
         }
     }
 }
