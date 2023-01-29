@@ -36,14 +36,10 @@ public class Trajectory : MonoBehaviour
         //check if right hand is visible
         if (HandJointUtils.TryGetJointPose(TrackedHandJoint.IndexTip, Handedness.Right, out Index))
         {
-            //Debug.Log(pinchStatus);
-            //Debug.Log("right hand visible");
 
             //check at every frame if the TrajectoryStatus has been changed to true                                 3
             if (TrajectoryStatus == true)
             {
-                //Debug.Log("teaching status is true");
-
                 // if right hand index pinches
                 if (pinchStatus > pinchThreshold)
                 {
@@ -61,7 +57,7 @@ public class Trajectory : MonoBehaviour
             //check at every frame if the TrajectoryStatus has been changed to false
             else if (TrajectoryStatus == false)
             {
-               // Debug.Log("done saving");
+               Debug.Log("TrajectoryStatus set to false");
             }
 
         }
@@ -71,8 +67,6 @@ public class Trajectory : MonoBehaviour
     //run when teach button is pressed                                                                              1
     public void TeachTrajectory()
     {
-        //Debug.Log("Button pressed");
-
         //Initiate the coroutine "CountdownApp"
         StartCoroutine(TeachTrajectoryApp());                                                                       //2
     }
@@ -92,8 +86,6 @@ public class Trajectory : MonoBehaviour
             //print the number
             printCountdown.text = $"Save in: {countdownStart}";
 
-            //Debug.Log(countdownStart);
-
             //wait for one second...
             yield return new WaitForSeconds(1f);
 
@@ -104,14 +96,8 @@ public class Trajectory : MonoBehaviour
         //when countdown done, print a final text
         printCountdown.text = "SAVING!";
 
-        //function to save the positions of the fingers
-        //StartCoroutine(TeachTrajectoryApp());
-        //TrajectoryTracer();
-
         //change TrajectoryStatus to true to initiates the if-loop in the Update()
         TrajectoryStatus = true;                                                                                    //3
-
-        //Debug.Log($"trajectoryStatus = {TrajectoryStatus}");
 
         //reset the countdown to the stored amount "savedStart"
         countdownStart = savedStart;
@@ -155,7 +141,7 @@ public class Trajectory : MonoBehaviour
         // loop through each traj sphere to destroy them
         foreach (GameObject trajSphere in trajSpheresList)
         {
-            // destroy each traj sphere
+            // remove each traj sphere
             Destroy(trajSphere);
         }
 
